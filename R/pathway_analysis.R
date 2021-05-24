@@ -73,7 +73,7 @@ pathway_analysis <- function(x, species = c("human", "mouse")) {
   keggres <- gage::gage(foldchanges, gsets = kegg.sigmet.gs, same.dir = TRUE)
   
   # if plotting then do so here - we plot the top 3 upregulated and downregulated
-  if (plot {
+  if (plot ()
     keggrespathways.up <- data.frame(id = rownames(keggres$greater), keggres$greater) %>%
       tbl_df() %>% 
       filter(row_number() <= 3) %>% 
@@ -86,7 +86,6 @@ pathway_analysis <- function(x, species = c("human", "mouse")) {
       as.character()
     keggrespathways <- c(keggrespathways.up, keggrespathways.down)
     keggresids <- substr(keggrespathways, start = 1, stop = 8)
-    }
     ## Unfortunately, the code for pathview (specifically the geneannot.map() function)
     ## down't specify AnnotationDbi::select at line 52, and so this conflicts with the 
     ## dplyr namespace, which we need to unload
