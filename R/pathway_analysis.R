@@ -86,6 +86,7 @@ pathway_analysis <- function(x, species = c("human", "mouse")) {
       as.character()
     keggrespathways <- c(keggrespathways.up, keggrespathways.down)
     keggresids <- substr(keggrespathways, start = 1, stop = 8)
+    }
     ## Unfortunately, the code for pathview (specifically the geneannot.map() function)
     ## down't specify AnnotationDbi::select at line 52, and so this conflicts with the 
     ## dplyr namespace, which we need to unload
